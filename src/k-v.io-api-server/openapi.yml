@@ -1,0 +1,31 @@
+openapi: 3.1.0
+info:
+    title: https://api.k-v.io OpenAPI Definition
+    description: |
+        This API allows the retrieval, setting, updating, and deleting keys and values
+        in a key-value store.
+    version: 0.0.1
+paths:
+    /v0/kv/{key}:
+        get:
+            parameters:
+            - name: key
+              in: path
+              required: true
+            responses:
+                "200":
+                    description: Key was successfully retrieved from the key-value store
+                "404":
+                    description: Key could not be found in the key-value store
+        put:
+            parameters:
+            - name: key
+              in: path
+              required: true
+            responses:
+                "200":
+                    description: Key's value was successfully set
+                "404":
+                    description: Key could not be found in the key-value store
+        delete: {}
+
